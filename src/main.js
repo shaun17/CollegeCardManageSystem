@@ -49,7 +49,8 @@ axios.interceptors.request.use(config => {
     return config;
 })
 // Vue.prototype.$http = axios
-axios.defaults.baseURL = 'https://www.liulongbin.top:8888/api/private/v1/'
+// axios.defaults.baseURL = 'https://www.liulongbin.top:8888/api/private/v1/'
+// axios.defaults.baseURL = 'http://localhost:8888/api/private/v1/'
 
 new Vue({
     router,

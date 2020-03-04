@@ -59,7 +59,7 @@ export default {
       console.log(this)
       this.$refs[formName].validate(async valid => {
         if (valid) {
-          const { data: res } = await this.$http.post('login', this.loginForm)
+          const { data: res } = await this.axios.post('/login', this.loginForm)
           console.log(res)
           if (res.meta.status === 200) {
             this.$message.success('登录成功')
