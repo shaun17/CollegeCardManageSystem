@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 // import ElementUI from 'element-ui'
-import { Button, Form, FormItem, Input, Message, Container, Main, MenuItem, Header, Aside, Menu, Submenu, Col, Image, Breadcrumb, BreadcrumbItem, Card, Row, Table, TableColumn, Switch, Tooltip, PageHeader, Pagination, Dialog, MessageBox } from 'element-ui'
+import { Button, Form, FormItem, Input, Message, Container, Main, MenuItem, Header, Aside, Menu, Submenu, Col, Image, Breadcrumb, BreadcrumbItem, Card, Row, Table, TableColumn, Switch, Tooltip, PageHeader, Pagination, Dialog, MessageBox, Tag, Tree, Select, Option } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/global.css'
 import axios from 'axios'
@@ -40,6 +40,10 @@ Vue.use(Tooltip)
 Vue.use(PageHeader)
 Vue.use(Pagination)
 Vue.use(Dialog)
+Vue.use(Tag)
+Vue.use(Tree)
+Vue.use(Select)
+Vue.use(Option)
 
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
@@ -50,7 +54,7 @@ axios.interceptors.request.use(config => {
 })
 // Vue.prototype.$http = axios
 // axios.defaults.baseURL = 'https://www.liulongbin.top:8888/api/private/v1/'
-// axios.defaults.baseURL = 'http://localhost:8888/api/private/v1/'
+axios.defaults.baseURL = 'http://localhost:8888/api/private/v1/'
 
 new Vue({
     router,

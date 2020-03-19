@@ -46,7 +46,12 @@
               @click="removeUserBydId(scope.row.id)"
             ></el-button>
             <el-tooltip content="分配角色" placement="top" :enterable="false">
-              <el-button type="warning" size="mini" icon="el-icon-setting"></el-button>
+              <el-button
+                type="warning"
+                size="mini"
+                icon="el-icon-setting"
+                @click="setRole(scope.row)"
+              ></el-button>
             </el-tooltip>
           </template>
         </el-table-column>
@@ -109,6 +114,34 @@
       <span slot="footer" class="dialog-footer">
         <el-button @click="editDialogVisible = false">取 消</el-button>
         <el-button type="primary" @click="editUser">确 定</el-button>
+      </span>
+    </el-dialog>
+
+    <!-- 分配角色对话框 -->
+    <el-dialog
+      title="分配角色"
+      :visible.sync="setRoleDialogVisible"
+      width="50%"
+      @close="setRoleDialogClose"
+    >
+      <div>
+        <p>当前用户：{{ this.userInfo.username}}</p>
+        <p>当前角色：{{ this.userInfo.role_name}}</p>
+        <p>
+          分配角色：
+          <el-select v-model="selectedRoleId" placeholder="请选择">
+            <el-option
+              v-for="item in rolesList"
+              :key="item.id"
+              :label="item.roleName"
+              :value="item.id"
+            ></el-option>
+          </el-select>
+        </p>
+      </div>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="setRoleDialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="saveRole">确 定</el-button>
       </span>
     </el-dialog>
   </div>
@@ -203,7 +236,15 @@ export default {
             trigger: 'blur'
           }
         ]
-      }
+      },
+      //控制分配权限对话框的显示和隐藏
+      setRoleDialogVisible: false,
+      //需要分配权限的用户信息
+      userInfo: {},
+      //所有角色的列表
+      rolesList: [],
+      //被选中的角色id
+      selectedRoleId: ''
     }
   },
   created() {
@@ -334,6 +375,39 @@ export default {
           this.getUserList()
         }
       }
+    },
+    //点击按钮弹出分配权限框
+    async setRole(userInfo) {
+      this.userInfo = userInfo
+      //获取所有角色列表
+      const { data: res } = await this.axios.get('roles')
+      if (res.meta.status !== 200) {
+        this.$message.error('查询角色列表失败')
+      }
+      this.rolesList = res.data
+      this.setRoleDialogVisible = true
+    },
+    //
+    setRoleDialogClose() {
+      this.selectedRoleId = ''
+    },
+    //分配角色
+    async saveRole() {
+      if (!this.selectedRoleId) {
+        return this.$message.error('请选择一个角色')
+      }
+      const { data: res } = await this.axios.put(
+        `users/${this.userInfo.id}/role`,
+        {
+          rid: this.selectedRoleId
+        }
+      )
+      if (res.meta.status !== 200) {
+        return this.$message.error('分配角色失败')
+      }
+      this.$message.success('分配角色成功')
+      this.getUserList()
+      this.setRoleDialogVisible = false
     }
   }
 }

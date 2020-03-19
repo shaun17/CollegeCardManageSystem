@@ -25,9 +25,6 @@
         <el-form-item>
           <el-button type="primary" @click="submitForm('loginFormRef')" style="width:100%">登录</el-button>
         </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="resetForm('loginFormRef')" style="width:100%">重置</el-button>
-        </el-form-item>
       </el-form>
     </div>
   </div>
@@ -127,7 +124,7 @@ export default {
     top: 50%;
     transform: translate(-50%, -50%);
     width: 435px;
-    height: 450px;
+    height: 350px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 20px #eee;

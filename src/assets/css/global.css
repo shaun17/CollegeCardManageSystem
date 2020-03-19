@@ -3,6 +3,7 @@ html,
 body,
 #app {
     height: 100%;
+    min-width: 1366px;
 }
 
 * {
@@ -22,6 +23,8 @@ body,
 .el-table {
     margin-top: 15px;
     font-size: 12px;
+    /**解决element-ui table页面抖动问题*/
+    width: 99.9% !important;
 }
 
 .el-pagination {
