@@ -4,22 +4,16 @@
 
 
 
-## 电商后台管理系统(前端项目)
+## 后台管理系统(前端项目)
 
 ### 功能
 
 > 用于管理用户账号，商品分类，商品信息，订单，数据统计等业务功能
 
-
-
-![](https://gitee.com/wBekvam/vue-shop-admin/raw/master/image/mall_desc01.png)
-
-
 ### 开发模式
 
-> 电商后台管理系统整体采用前后端分离的开发模式,其中前端项目是基于Vue技术栈的SPA项目
+> 后台管理系统整体采用前后端分离的开发模式,其中前端项目是基于Vue技术栈的SPA项目
 
-![](https://gitee.com/wBekvam/vue-shop-admin/raw/master/image/mall_desc02.png)
 
 ### 技术选型
 
@@ -33,17 +27,11 @@
 
 #### 后端项目技术栈
 
-- Node.js
-
-- Express
+- java
 
 - Jwt
 
 - Mysql
-
-- Sequelize
-
-  ##### [接口文档](https://gitee.com/wBekvam/vue-shop-admin/raw/master/api%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3.md).
 
   后端源码  [下载](https://gitee.com/wBekvam/vueShop-api-server.git).
 
@@ -51,8 +39,9 @@
 
 #### 前端项目初始化步骤
 
-1. 安装 Vue 脚手架
-2. 通过 Vue-Cli 创建项目
+1. 安装 node.js ：最新的稳定版本即可
+1. 安装 Vue 脚手架 : npm install vue 
+2. 通过 Vue-Cli 创建项目 
 3. 配置 Vue-router
 4. 配置 Element-UI 组件库
 5. 配置 Axios 库
@@ -65,7 +54,7 @@
 #### 后端项目的环境安装配置
 
 1. 安装MySQL数据库
-2. 安装Node.js环境
+2. 安装java环境
 3. 配置项目相关信息
 4. 启动项目
    1. 使用phpstudy导入数据库并运行
@@ -102,21 +91,6 @@
 - el-button
 - 字体图标
 
-##### 创建git分支
-
-```
-// 创建并切换登录分支
-git checkout -b login
-
-// login分支合并到主分支
-// 1.切换到master分支
-git checkout master
-// 2.合并分支到master
-git merge login
-
-// 将本地login子分支推送到github
-git push -u origin login
-```
 
 ##### 路由导航守卫控制访问权限
 
@@ -155,9 +129,6 @@ axios.interceptors.request.use(config => {
 #### 权限管理业务分析
 
 > 通过权限管理模块控制不同的用户可以进行哪些操作,具体可以通过角色的方式进行控制,即每个用户分配一个特定的角色,角色包括不同的功能权限
-
-![](https://gitee.com/wBekvam/vue-shop-admin/raw/master/image/mall_desc05.png)
-
 
 
 ### 分类管理
