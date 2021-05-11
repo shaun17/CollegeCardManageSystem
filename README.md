@@ -40,7 +40,7 @@
 #### 前端项目初始化步骤
 
 1. 安装 node.js ：最新的稳定版本即可
-1. 安装 Vue 脚手架 : npm install vue 
+1. 安装 Vue 脚手架 : npm install -> 不知道缺什么包，使用install全部安装  
 2. 通过 Vue-Cli 创建项目 
 3. 配置 Vue-router
 4. 配置 Element-UI 组件库
