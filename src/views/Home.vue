@@ -90,25 +90,55 @@ export default {
     async getMenuList() {
       // const { data: res } = await this.$http.get('menus')
       // 模拟菜单请求
-      const res = {
-                  "data":  [{
-                          "id": 101,
-                          "authName": "商品管理",
-                          "path": "",
-                          "children": [
-                              {
-                                  "id": 104,
-                                  "authName": "商品列表",
-                                  "path": "users",
-                                  "children": []
-                              }
-                          ]
-                      }],
-                  "meta": {
-                      "msg": "获取菜单列表成功",
-                      "status": 200
-                  }
+      const res = 
+            {
+                "data": [
+                    {
+                        "id": 101, 
+                        "authName": "商品管理", 
+                        "path": "", 
+                        "children": [
+                            {
+                                "id": 104, 
+                                "authName": "商品列表", 
+                                "path": "goods", 
+                                "children": [ ]
+                            },{
+                                "id": 104, 
+                                "authName": "团购列表", 
+                                "path": "teamgoods", 
+                                "children": [ ]
+                            }
+                        ]
+                    },{
+                      "id": 102, 
+                        "authName": "用户管理", 
+                        "path": "", 
+                        "children": [
+                            {
+                                "id": 104, 
+                                "authName": "用户列表", 
+                                "path": "users", 
+                                "children": [ ]
+                            },{
+                                "id": 105, 
+                                "authName": "权限列表", 
+                                "path": "roles", 
+                                "children": [ ]
+                            },{
+                                "id": 105, 
+                                "authName": "角色列表", 
+                                "path": "permissions", 
+                                "children": [ ]
+                            }
+                        ]
+                    }
+                ], 
+                "meta": {
+                    "msg": "获取菜单列表成功", 
+                    "status": 200
                 }
+            }
       console.log(res)
       if (res.meta.status !== 200) {
         this.$message.error(res.meta.msg)

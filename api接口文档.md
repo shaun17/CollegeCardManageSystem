@@ -106,26 +106,45 @@
 ```json
 {
     "data": {
-        "totalpage": 5,
-        "pagenum": 4,
+        "totalpage": 5, 
+        "pagenum": 4, 
         "users": [
             {
-                "id": 25,
-                "username": "tige117",
-                "mobile": "18616358651",
-                "type": 1,
-                "email": "tige112@163.com",
-                "create_time": "2017-11-09T20:36:26.000Z",
-                "mg_state": true, // 当前用户的状态
+                "id": 1, 
+                "username": "admin", 
+                "mobile": "18616358651", 
+                "type": 1, 
+                "email": "admin@163.com", 
+                "create_time": "2017-11-09T20:36:26.000Z", 
+                "mg_state": true, 
+                "role_name": "管理员"
+            }, {
+                "id": 2, 
+                "username": "superadmin", 
+                "mobile": "18616358651", 
+                "type": 1, 
+                "email": "superadmin@163.com", 
+                "create_time": "2017-11-09T20:36:26.000Z", 
+                "mg_state": true, 
                 "role_name": "炒鸡管理员"
+            }, {
+                "id": 3, 
+                "username": "zhangsan", 
+                "mobile": "18616358651", 
+                "type": 1, 
+                "email": "zhangsan@163.com", 
+                "create_time": "2017-11-09T20:36:26.000Z", 
+                "mg_state": true, 
+                "role_name": "员工"
             }
         ]
-    },
+    }, 
     "meta": {
-        "msg": "获取成功",
+        "msg": "获取成功", 
         "status": 200
     }
 }
+
 ```
 
 ### 1.3.2. 添加用户
@@ -434,22 +453,50 @@ type=tree
 
 ```json
 {
-    "data":
+    "data": [
         {
-            "id": 101,
-            "authName": "商品管理",
-            "path": null,
+            "id": 101, 
+            "authName": "商品管理", 
+            "path": "", 
             "children": [
                 {
-                    "id": 104,
-                    "authName": "商品列表",
-                    "path": null,
-                    "children": []
+                    "id": 104, 
+                    "authName": "商品列表", 
+                    "path": "goods", 
+                    "children": [ ]
+                },{
+                    "id": 104, 
+                    "authName": "团购列表", 
+                    "path": "teamgoods", 
+                    "children": [ ]
                 }
             ]
-        },
+        },{
+           "id": 102, 
+            "authName": "用户管理", 
+            "path": "", 
+            "children": [
+                {
+                    "id": 104, 
+                    "authName": "用户列表", 
+                    "path": "users", 
+                    "children": [ ]
+                },{
+                    "id": 105, 
+                    "authName": "权限列表", 
+                    "path": "roles", 
+                    "children": [ ]
+                },{
+                    "id": 105, 
+                    "authName": "角色列表", 
+                    "path": "permissions", 
+                    "children": [ ]
+                }
+            ]
+        }
+    ], 
     "meta": {
-        "msg": "获取菜单列表成功",
+        "msg": "获取菜单列表成功", 
         "status": 200
     }
 }

@@ -252,9 +252,52 @@ export default {
   },
   methods: {
     async getUserList() {
-      const { data: res } = await this.axios.get('users', {
-        params: this.queryInfo
-      })
+      //模拟用户列表接口数据
+      // const { data: res } = await this.axios.get('users', {
+      //   params: this.queryInfo
+      // })
+      const res = 
+              {
+                  "data": {
+                      "totalpage": 5, 
+                      "pagenum": 4, 
+                      "users": [
+                          {
+                              "id": 1, 
+                              "username": "admin", 
+                              "mobile": "18616358651", 
+                              "type": 1, 
+                              "email": "admin@163.com", 
+                              "create_time": "2017-11-09T20:36:26.000Z", 
+                              "mg_state": true, 
+                              "role_name": "管理员"
+                          }, {
+                              "id": 2, 
+                              "username": "superadmin", 
+                              "mobile": "18616358651", 
+                              "type": 1, 
+                              "email": "superadmin@163.com", 
+                              "create_time": "2017-11-09T20:36:26.000Z", 
+                              "mg_state": true, 
+                              "role_name": "炒鸡管理员"
+                          }, {
+                              "id": 3, 
+                              "username": "zhangsan", 
+                              "mobile": "18616358651", 
+                              "type": 1, 
+                              "email": "zhangsan@163.com", 
+                              "create_time": "2017-11-09T20:36:26.000Z", 
+                              "mg_state": true, 
+                              "role_name": "员工"
+                          }
+                      ]
+                  }, 
+                  "meta": {
+                      "msg": "获取成功", 
+                      "status": 200
+                  }
+              }
+
       console.log(res.data)
       if (res.meta.status !== 200) {
         return this.$message.error(res.meta.msg)
