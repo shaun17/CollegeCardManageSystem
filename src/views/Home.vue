@@ -3,7 +3,7 @@
     <el-header>
       <div class="logo">
         <img src="../assets/logo.png" alt />
-        <span>电商后台管理系统</span>
+        <span>权益卡后台管理系统</span>
       </div>
       <el-button type="info" @click="logout">退出</el-button>
     </el-header>
@@ -24,7 +24,7 @@
           :default-active="this.$route.path"
         >
           <!-- 一级菜单 -->
-          <el-submenu :index="item.id + ''" v-for="item in menuList" :key="item.id">
+          <el-submenu :index="item.id" v-for="item in menuList" :key="item.id">
             <template slot="title">
               <i :class="iconsObj[item.id]"></i>
               <span>{{item.authName}}</span>
@@ -88,7 +88,27 @@ export default {
       this.$router.push('/login')
     },
     async getMenuList() {
-      const { data: res } = await this.$http.get('menus')
+      // const { data: res } = await this.$http.get('menus')
+      // 模拟菜单请求
+      const res = {
+                  "data":  [{
+                          "id": 101,
+                          "authName": "商品管理",
+                          "path": "",
+                          "children": [
+                              {
+                                  "id": 104,
+                                  "authName": "商品列表",
+                                  "path": "users",
+                                  "children": []
+                              }
+                          ]
+                      }],
+                  "meta": {
+                      "msg": "获取菜单列表成功",
+                      "status": 200
+                  }
+                }
       console.log(res)
       if (res.meta.status !== 200) {
         this.$message.error(res.meta.msg)

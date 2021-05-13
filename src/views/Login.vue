@@ -56,7 +56,22 @@ export default {
       console.log(this)
       this.$refs[formName].validate(async valid => {
         if (valid) {
-          const { data: res } = await this.axios.post('/login', this.loginForm)
+          // const { data: res } = await this.axios.post('/login', this.loginForm)
+          //模拟登录
+          const res = {
+                "data": {
+                    "id": 500,
+                    "rid": 11,
+                    "username": "admin",
+                    "mobile": "123",
+                    "email": "123@qq.com",
+                    "token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjUwMCwicmlkIjowLCJpYXQiOjE1MTI1NDQyOTksImV4cCI6MTUxMjYzMDY5OX0.eGrsrvwHm-tPsO9r_pxHIQ5i5L1kX9RX444uwnRGaIM"
+                },
+                "meta": {
+                    "msg": "登录成功",
+                    "status": 200
+                }
+            }
           console.log(res)
           if (res.meta.status === 200) {
             this.$message.success('登录成功')
